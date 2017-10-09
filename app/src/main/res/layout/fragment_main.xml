@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_weidth="match_parent"
     android:layout_height="match_parent">
+
+    <!--content-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="@dimen/margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
+
+    <!--<Logo  ctrl+/-->
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logopokemon"
+        android:layout_width="@dimen/Logo"
+        android:layout_height="@dimen/Logo" />
+    <!--App Name-->
+
+
+    <!--User-->
+
+
+    <!--password-->
+
+
+    <!--Button-->
+
+    <!--New Register-->
+
+
+
 
 </LinearLayout>
