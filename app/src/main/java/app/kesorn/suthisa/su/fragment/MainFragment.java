@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import app.kesorn.suthisa.su.R;
 
@@ -24,7 +25,19 @@ public class MainFragment extends Fragment{
 
         View view=inflater.inflate(R.layout.fragment_main,container,false);
 
+       return view;
+    }
 
-        return view;
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+//        Register
+
+        register();
+
+    }
+
+    private void register() {
+        TextView textView = (TextView) getView().findViewById(R.id.txtRegister);
     }
 }//Main Class
