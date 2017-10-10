@@ -1,68 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_weidth="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--content-->
+    <!--Content-->
     <LinearLayout
         android:orientation="vertical"
-        android:layout_margin="@dimen/margin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
 
-    <!--<Logo  ctrl+/-->
-    <ImageView
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/logopokemon"
-        android:layout_width="@dimen/Logo"
-        android:layout_height="@dimen/Logo" />
-    <!--App Name-->
-    <TextView
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold || italic"
-        android:textSize="@dimen/h1"
-        android:text="@string/app_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <!--Logo-->
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logopokemon"
+            android:layout_width="@dimen/Logo"
+            android:layout_height="@dimen/Logo" />
 
+        <!--App Name-->
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:textSize="@dimen/h1"
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <!--User-->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        <!--User-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <!--Icon-->
-    <ImageView
-        android:src="@mipmap/ic_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <!--Icon-->
+            <ImageView
+                android:src="@mipmap/ic_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-
-        <!--<User-->
-    <EditText
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimary"
-        android:inputType="text"
-        android:hint="@string/user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
-
-    <!--password-->
+            <!--User-->
+            <EditText
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimary"
+                android:inputType="text"
+                android:hint="@string/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
-    <!--Button-->
+        </LinearLayout>
+
+        <!--Password-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Icon-->
+            <ImageView
+                android:src="@mipmap/ic_passsword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!--User-->
+            <EditText
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimary"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
-    <!--New Register-->
+        </LinearLayout>
+
+        <!--Button-->
+
+        <!--New Register-->
 
 
+    </LinearLayout>
 
-
-</LinearLayout>
+</RelativeLayout>
