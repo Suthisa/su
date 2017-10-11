@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
 import app.kesorn.suthisa.su.MainActivity;
 import app.kesorn.suthisa.su.R;
@@ -16,6 +18,11 @@ import app.kesorn.suthisa.su.R;
  */
 
 public class RegisterFragment extends Fragment  {
+    //Explicit
+    private String nameString, userString, passwordString;
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,6 +55,21 @@ public class RegisterFragment extends Fragment  {
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
+
+
+        //Save Controller
+        ImageView imageView = (ImageView) getView().findViewById((R.id.imvSave));
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            //Get value form
+                EditText nameEditText = (EditText) getView().findViewById(R.id.edtName);
+                EditText valueEditText = (EditText) getView().findViewById(R.id.edtUser);
+                EditText passwordEditText = (EditText) getView().findViewById(R.id.edtPassword);
+
+            }//onClick
+        });
+        }
 
 
 
