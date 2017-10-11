@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import app.kesorn.suthisa.su.MainActivity;
 import app.kesorn.suthisa.su.R;
+import app.kesorn.suthisa.su.utility.MyAlert;
 
 /**
  * Created by suthisa on 10/10/2017.
@@ -66,13 +67,26 @@ public class RegisterFragment extends Fragment  {
                 EditText nameEditText = (EditText) getView().findViewById(R.id.edtName);
                 EditText valueEditText = (EditText) getView().findViewById(R.id.edtUser);
                 EditText passwordEditText = (EditText) getView().findViewById(R.id.edtPassword);
+//                Change Data type
+                nameString = nameEditText.getText().toString().trim();
+                userString = valueEditText.getText().toString().trim();
+                passwordString = passwordEditText.getText().toString().trim();
 
-            }//onClick
-        });
+                //check space
+                if (nameString.equals("") || userString.equals("") || passwordString.equals("")) {
+                    //Have Spece
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.myDialog("HaveSpace", "Please Fail All Every Blank");
+
+                }
+
+
+
+             });
         }
 
 
 
-    }
 
-}
+
+    }
