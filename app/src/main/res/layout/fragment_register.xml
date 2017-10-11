@@ -29,95 +29,96 @@
     <!--Content-->
 
     <LinearLayout
-        android:padding="16dp"
-        android:background="#50000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
+        android:background="#50000000"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <!--Humen-->
-    <ImageView
-        android:id="@+id/imageview"
-        android:src="@drawable/human"
-        android:layout_margin="16dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="@dimen/Logo"
-        android:layout_height="@dimen/Logo" />
-
-
-    <!--Name-->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--Icon-->
+        android:padding="16dp">
+        <!--Humen-->
         <ImageView
-            android:src="@mipmap/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:id="@+id/imageview"
+            android:layout_width="@dimen/Logo"
+            android:layout_height="@dimen/Logo"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="16dp"
+            android:src="@drawable/human" />
 
-        <!--User-->
-        <EditText
-            android:id="@+id/edtName"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimary"
-            android:inputType="text"
-            android:hint="Name :"
+
+        <!--Name-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Icon-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/name" />
+
+            <!--User-->
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name :"
+                android:inputType="text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimary" />
 
 
-    </LinearLayout>
-    <!--User-->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--Icon-->
-        <ImageView
-            android:src="@mipmap/ic_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
+        </LinearLayout>
         <!--User-->
-        <EditText
-            android:id="@+id/edtUser"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimary"
-            android:inputType="text"
-            android:hint="@string/user"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Icon-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_user" />
+
+            <!--User-->
+            <EditText
+                android:id="@+id/edtUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/user"
+                android:inputType="text"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimary" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <!--Password-->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!--Icon-->
-        <ImageView
-            android:src="@mipmap/ic_passsword"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <!--User-->
-        <EditText
-            android:id="@+id/edtPassword"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimary"
-            android:inputType="textPassword"
-            android:hint="@string/password"
+        <!--Password-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Icon-->
+            <ImageView
+                android:id="@+id/imvHumen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_passsword" />
+
+            <!--User-->
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="@color/colorPrimary" />
 
 
-    </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

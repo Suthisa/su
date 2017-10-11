@@ -1,9 +1,16 @@
 package app.kesorn.suthisa.su.fragment;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +28,10 @@ import app.kesorn.suthisa.su.utility.MyAlert;
 public class RegisterFragment extends Fragment  {
     //Explicit
     private String nameString, userString, passwordString;
-
-
+    private Uri uri;
+    private ImageView imageView;
+    private boolean aBoolean = true;
+    private String tag = "11cctV1";//today tag
 
     @Nullable
     @Override
@@ -38,7 +47,53 @@ public class RegisterFragment extends Fragment  {
 //        Toolbar Controler
         toolbarControler();
 
+
+//        HUmenController Controller
+        HUmenController();
+
+        }//Main Methode
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == getActivity().RESULT_OK) {
+
+             //
+             Log.d(tag, "Result OK");
+
+            aBoolean = false;
+
+            try {
+                uri = data.getData();
+                Bitmap bitmap = BitmapFactory
+                        .decodeStream(getActivity().getContentResolver().openInputStream(uri));
+                imageView.setImageBitmap(bitmap);
+            } catch (Exception e) {
+                Log.d(tag, "e ==>" + e.toString());
+            }
+
+        }//if
+
+    }//OnActivityResult
+
+    private void HUmenController() {
+        imageView = (ImageView) getView().findViewById(R.id.imageview);
+        imageView.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(intent, "Please Choose App"), 1);
+
+
+            }//OnClick
+
+        });
     }
+
 
     private void toolbarControler() {
         //Connfing ToolBar
@@ -78,14 +133,39 @@ public class RegisterFragment extends Fragment  {
                     MyAlert myAlert = new MyAlert(getActivity());
                     myAlert.myDialog("HaveSpace", "Please Fail All Every Blank");
 
+                } else if (aBoolean) {
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.myDialog("No Image","PleaseChoose Image");
+
+                } else {
+                    upLoadValueToServer();
+
                 }
 
+            }
+        });
 
-            }    });
+
+    }//Tool bar controll
+
+    private void upLoadValueToServer() {
+        //Find Patch of IMage
+        String strPathImage = "";
+
+        String[] strings = new String[]{MediaStore.Images.Media.DATA};
+        Cursor cursor = getActivity().getContentResolver().query(uri,strings,
+                null,null,null);
+        if (cursor != null) {
+            cursor.moveToFirst();
+            int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            strPathImage = cursor.getString(index);
+
+
+        } else {
+            strPathImage = uri.getPath();
         }
+        Log.d(tag, "Path of Image ==>" + strPathImage);
 
 
-
-
-
-    }
+    }//upload
+}//main clase
