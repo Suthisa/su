@@ -63,7 +63,7 @@ public class RegisterFragment extends Fragment  {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            //Get value form
+                //Get value form
                 EditText nameEditText = (EditText) getView().findViewById(R.id.edtName);
                 EditText valueEditText = (EditText) getView().findViewById(R.id.edtUser);
                 EditText passwordEditText = (EditText) getView().findViewById(R.id.edtPassword);
@@ -81,8 +81,7 @@ public class RegisterFragment extends Fragment  {
                 }
 
 
-
-             });
+            }    });
         }
 
 
