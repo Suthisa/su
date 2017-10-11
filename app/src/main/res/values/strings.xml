@@ -3,6 +3,6 @@
     <string name="user">User :</string>
     <string name="password">Password :</string>
     <string name="sing_in">Sing_In</string>
-    <string name="new_regidter">New_Regidter</string>
+    <string name="new_regidter">New_Register</string>
     <string name="register">Register</string>
 </resources>
