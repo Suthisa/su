@@ -193,6 +193,8 @@ public class RegisterFragment extends Fragment  {
             simpleFTP.cwd("ImageTong");
             simpleFTP.stor(new File(strPathImage));
             simpleFTP.disconnect();
+//            Update_Value On mysql
+
 
 
 

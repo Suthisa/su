@@ -9,7 +9,13 @@ public class MyConstant {
     private String userString = "ino@swiftcodingthai.com";
     private String passwordString = "Abc12345";
     private int PortAnInt = 21;
- //Alt+Fn+insert >>Getter
+    private String urPostUser = "http://swiftcodingthai.com/ino/adduser.php";
+
+    public String getUrPostUser() {
+        return urPostUser;
+    }
+
+    //Alt+Fn+insert >>Getter
     public String getHostString() {
         return hostString;
     }
