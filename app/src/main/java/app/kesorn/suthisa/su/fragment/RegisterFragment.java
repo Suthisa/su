@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.jibble.simpleftp.SimpleFTP;
 
@@ -27,6 +28,7 @@ import app.kesorn.suthisa.su.MainActivity;
 import app.kesorn.suthisa.su.R;
 import app.kesorn.suthisa.su.utility.MyAlert;
 import app.kesorn.suthisa.su.utility.MyConstant;
+import app.kesorn.suthisa.su.utility.UpLoadValueToServer;
 
 /**
  * Created by suthisa on 10/10/2017.
@@ -194,8 +196,21 @@ public class RegisterFragment extends Fragment  {
             simpleFTP.stor(new File(strPathImage));
             simpleFTP.disconnect();
 //            Update_Value On mysql
+            Log.d(tag, "Name ==>" + nameString);
+            Log.d(tag, "User ==>" + userString);
+            Log.d(tag, "Password ==>" + passwordString);
+            Log.d(tag, "Image ==>" + findNameImage(strPathImage));//Alt+Enter >Enter>enter create part
 
+            UpLoadValueToServer upLoadValueToServer = new UpLoadValueToServer(getActivity());
+            upLoadValueToServer.execute(nameString,userString,passwordString,
+                    findNameImage(strPathImage),myConstant.getUrPostUser());
+            if (Boolean.parseBoolean(upLoadValueToServer.get())) {
+                getActivity().getSupportFragmentManager().popBackStack();
 
+            } else {
+                Toast.makeText(getActivity(),"Error Connect Upload", Toast.LENGTH_SHORT).show();
+
+            }
 
 
 
@@ -210,4 +225,14 @@ public class RegisterFragment extends Fragment  {
 
 
     }//upload
+
+    private String findNameImage(String strPathImage) {
+        String result = null;///create
+        result = strPathImage.substring(strPathImage.lastIndexOf("/"));//cutof "/"
+        result = "http://swiftcodingthai.com/ino/ImageTong " + result;
+
+
+
+        return result;
+    }
 }//main clase
