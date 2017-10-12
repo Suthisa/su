@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,9 +18,15 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import org.jibble.simpleftp.SimpleFTP;
+
+import java.io.File;
+import java.nio.channels.AlreadyConnectedException;
+
 import app.kesorn.suthisa.su.MainActivity;
 import app.kesorn.suthisa.su.R;
 import app.kesorn.suthisa.su.utility.MyAlert;
+import app.kesorn.suthisa.su.utility.MyConstant;
 
 /**
  * Created by suthisa on 10/10/2017.
@@ -165,6 +172,39 @@ public class RegisterFragment extends Fragment  {
             strPathImage = uri.getPath();
         }
         Log.d(tag, "Path of Image ==>" + strPathImage);
+        //Uplode File to server
+        try {
+            //Connect Protocol FTP
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy
+                    .Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+            SimpleFTP simpleFTP = new SimpleFTP();
+            //myconstan run
+            MyConstant myConstant = new MyConstant();
+            simpleFTP.connect(
+                    myConstant.getHostString(),
+                    myConstant.getPortAnInt(),
+                    myConstant.getUserString(),
+                    myConstant.getPasswordString()
+
+
+            );
+            simpleFTP.bin();
+            simpleFTP.cwd("ImageTong");
+            simpleFTP.stor(new File(strPathImage));
+            simpleFTP.disconnect();
+
+
+
+
+
+
+
+
+        } catch (Exception e) {
+            Log.d(tag, "e upload ==>" + e.toString());
+
+        }
 
 
     }//upload
