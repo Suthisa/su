@@ -10,6 +10,11 @@ public class MyConstant {
     private String passwordString = "Abc12345";
     private int PortAnInt = 21;
     private String urPostUser = "http://swiftcodingthai.com/ino/adduser.php";
+    private String urlGetdata = "http://swiftcodingthai.com/ino/getAllDataSuthisa.php";
+
+    public String getUrlGetdata() {
+        return urlGetdata;
+    }
 
     public String getUrPostUser() {
         return urPostUser;
